@@ -1,0 +1,12 @@
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\Debug\SistemaInventarioActivos.exe.config
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\Debug\SistemaInventarioActivos.exe
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\Debug\SistemaInventarioActivos.pdb
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\Debug\SistemaInventarioActivos.xml
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.vbproj.AssemblyReference.cache
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmPrincipal.resources
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.Resources.resources
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.vbproj.GenerateResource.cache
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.vbproj.CoreCompileInputs.cache
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.exe
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.xml
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.pdb
