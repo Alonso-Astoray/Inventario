@@ -1,6 +1,7 @@
-﻿Imports System.IO
+﻿Imports System.Data.SqlClient
+Imports System.IO
 Public Class frmConfiguracion
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Me.Close()
         Me.Dispose()
     End Sub
@@ -31,7 +32,28 @@ Public Class frmConfiguracion
             archivo.Flush()
             archivo.Close()
         Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
+        btnCancelar.PerformClick()
+    End Sub
 
+    Private Sub frmConfiguracion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            If File.Exists(Application.StartupPath + "\IP.txt") Then
+                txtIp.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "\IP.txt")
+            End If
+            If File.Exists(Application.StartupPath + "\USER.txt") Then
+                txtUser.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "\USER.txt")
+            End If
+            If File.Exists(Application.StartupPath + "\PASS.txt") Then
+                txtPass.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "\PASS.txt")
+            End If
+            If File.Exists(Application.StartupPath + "\BD.txt") Then
+                txtBd.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "\BD.txt")
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
 End Class
