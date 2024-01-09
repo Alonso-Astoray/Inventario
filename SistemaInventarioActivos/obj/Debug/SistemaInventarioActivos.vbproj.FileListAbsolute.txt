@@ -10,3 +10,4 @@ D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.exe
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.xml
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.pdb
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmConfiguracion.resources
