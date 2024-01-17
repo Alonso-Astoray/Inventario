@@ -11,7 +11,7 @@ Module ConectarBD
     Public usuario As String
     Public tipousuario As String
 
-    Public Sub establecerconexion()
+    Public Sub Establecerconexion()
         Try
             If File.Exists(Application.StartupPath + "\IP.txt") Then
                 ip = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "\IP.txt")
@@ -33,6 +33,7 @@ Module ConectarBD
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         End Try
+
     End Sub
 
     Public Function obtenerconexion() As String
