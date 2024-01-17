@@ -6,8 +6,11 @@ Public Class frmLogin
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         If UsernameTextBox.Text = "" Or PasswordTextBox.Text = "" Then
             MsgBox("Existen datos vacios", vbExclamation, "Operación Cancelada")
+
         Else
             Try
+
+                Establecerconexion()
                 conexion.Open()
                 adaptador = New SqlDataAdapter("SELECT * FROM Usuarios WHERE Usuario ='" & UsernameTextBox.Text & "' AND Password ='" & PasswordTextBox.Text & "' ", conexion)
                 tabla.Clear()
@@ -25,6 +28,8 @@ Public Class frmLogin
                 End If
             Catch ex As Exception
                 MsgBox(ex.Message, vbCritical, "Error")
+                Console.WriteLine(ex)
+
             End Try
         End If
     End Sub
