@@ -9,8 +9,6 @@ Public Class frmLogin
 
         Else
             Try
-
-                Establecerconexion()
                 conexion.Open()
                 adaptador = New SqlDataAdapter("SELECT * FROM Usuarios WHERE Usuario ='" & UsernameTextBox.Text & "' AND Password ='" & PasswordTextBox.Text & "' ", conexion)
                 tabla.Clear()
@@ -26,9 +24,9 @@ Public Class frmLogin
                     UsernameTextBox.Text = ""
                     PasswordTextBox.Text = ""
                 End If
+                conexion.Close()
             Catch ex As Exception
                 MsgBox(ex.Message, vbCritical, "Error")
-                Console.WriteLine(ex)
 
             End Try
         End If
