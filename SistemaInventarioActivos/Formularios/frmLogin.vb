@@ -16,7 +16,10 @@ Public Class frmLogin
                 If tabla.Rows.Count = 1 Then
                     Dim fila As DataRow = tabla.Rows(0)
                     nombre = Trim(fila("NombreCompleto").ToString)
-                    tipousuario = Trim(fila("NombreCompleto").ToString)
+                    tipousuario = Trim(fila("TipoUsuario").ToString)
+
+                    frmPrincipal.ToolStripStatusLabel1.Text = nombre
+                    frmPrincipal.ToolStripStatusLabel3.Text = tipousuario
 
                     MsgBox("Datos verificados", vbInformation, "Operacion Completada")
                     UsernameTextBox.Text = ""

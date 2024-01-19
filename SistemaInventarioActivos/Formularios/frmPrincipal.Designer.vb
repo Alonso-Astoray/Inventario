@@ -78,8 +78,8 @@ Partial Class frmPrincipal
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -468,8 +468,8 @@ Partial Class frmPrincipal
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(89, 17)
-        Me.ToolStripStatusLabel2.Text = "Tipo de Usuario"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(92, 17)
+        Me.ToolStripStatusLabel2.Text = "Tipo de Usuario:"
         '
         'ToolStripStatusLabel3
         '

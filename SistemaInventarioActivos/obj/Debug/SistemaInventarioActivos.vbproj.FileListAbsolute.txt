@@ -12,3 +12,4 @@ D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.pdb
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmConfiguracion.resources
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmLogin.resources
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmUsuarios.resources
