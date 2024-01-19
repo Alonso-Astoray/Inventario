@@ -53,11 +53,12 @@ Module ConectarBD
             If ip.Length = 0 Or user.Length = 0 Or pass.Length = 0 Or bd.Length = 0 Then
                 MsgBox("Faltan parámetros de conexión", vbCritical, "ERROR DE CONEXIÓN")
             Else
-                conexion = New SqlConnection("Data Source=" & ip.Trim & "; Initial Catalog=" & bd.Trim & ";User Id=" & user.Trim & "; Password=" & pass.Trim & "; ")
+                miConexion = "Data Source=" & ip.Trim & "; Initial Catalog=" & bd.Trim & ";User Id=" & user.Trim & "; Password=" & pass.Trim & "; "
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         End Try
+        Return miConexion
 
     End Function
 End Module
