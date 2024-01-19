@@ -14,6 +14,10 @@ Public Class frmLogin
                 tabla.Clear()
                 adaptador.Fill(tabla)
                 If tabla.Rows.Count = 1 Then
+                    Dim fila As DataRow = tabla.Rows(0)
+                    nombre = Trim(fila("NombreCompleto").ToString)
+                    tipousuario = Trim(fila("NombreCompleto").ToString)
+
                     MsgBox("Datos verificados", vbInformation, "Operacion Completada")
                     UsernameTextBox.Text = ""
                     PasswordTextBox.Text = ""
@@ -41,6 +45,6 @@ Public Class frmLogin
     End Sub
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Establecerconexion()
+        establecerConexion()
     End Sub
 End Class
