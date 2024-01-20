@@ -81,9 +81,12 @@ Public Class frmUsuarios
         Dim sql As String
         sql = "SELECT * FROM Usuarios"
         Try
-            adaptador = New SqlDataAdapter
-        Catch ex As Exception
+            adaptador = New SqlDataAdapter(sql, obtenerConexion)
+            adaptador.Fill(tabla)
+            dgvUsuarios.DataSource = tabla
 
+        Catch ex As Exception
+            MsgBox("Se ha mostrado el siguiente error " + ex.ToString + "Sistema Inventario")
         End Try
     End Sub
 
