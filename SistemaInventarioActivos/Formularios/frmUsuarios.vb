@@ -2,7 +2,7 @@
 Public Class frmUsuarios
     Private Sub frmUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call DesactivarControles()
-
+        LlenarDatos()
     End Sub
     Sub DesactivarControles()
         btnGuardar.Enabled = False
@@ -98,6 +98,7 @@ Public Class frmUsuarios
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         insertar()
+        LlenarDatos()
         Call DesactivarControles()
         LimpiarControles()
     End Sub
@@ -105,5 +106,13 @@ Public Class frmUsuarios
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Call DesactivarControles()
         LimpiarControles()
+    End Sub
+
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        LlenarDatos()
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        LlenarDatos()
     End Sub
 End Class
