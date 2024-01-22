@@ -488,7 +488,7 @@ Partial Class frmPrincipal
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "frmPrincipal"
-        Me.Text = "frmPrincipal"
+        Me.Text = "Sistema de Control Inventario"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ToolStrip.ResumeLayout(False)
