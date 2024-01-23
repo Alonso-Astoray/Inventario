@@ -8,6 +8,7 @@ Public Class frmUsuarios
 
 
     End Sub
+
     Sub DesactivarControles()
         btnGuardar.Enabled = False
         btnEditar.Enabled = False
