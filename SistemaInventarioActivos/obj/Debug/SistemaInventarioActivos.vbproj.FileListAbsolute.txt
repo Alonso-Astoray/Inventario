@@ -15,3 +15,4 @@ D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmUsuarios.resources
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmDepartamentos.resources
 D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmPuestosTrabajo.resources
+D:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmEmpleados.resources

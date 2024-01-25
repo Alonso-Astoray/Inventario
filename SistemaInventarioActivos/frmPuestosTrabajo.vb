@@ -78,6 +78,52 @@ Public Class frmPuestosTrabajo
             MsgBox("Registro realizado exitosamente ", vbInformation, "Sistema inventario")
         End If
     End Sub
+    Sub Editar()
+        Dim id As Integer
+        If txtId.Text = "" Then
+            MsgBox("Existen Campos Vacios", vbInformation, "Sistema de Inventario")
+        Else
+            Dim sql As String
+            sql = "UPDATE Puestos SET NombreP ='" & txtNombreP.Text & "', DescripcionP ='" & txtDescripcionP.Text &
+                "' WHERE IdPuesto ='" & txtId.Text & "' "
+            Dim conect As New SqlConnection(obtenerConexion)
+            conect.Open()
+            Using comando As New SqlCommand(sql, conect)
+                id = comando.ExecuteScalar()
+
+            End Using
+            conect.Close()
+            MsgBox("Registro editado exitosamente", vbInformation, "Sistema de Inventario")
+            LimpiarControles()
+        End If
+    End Sub
+    Sub Eliminar()
+        Dim id As Integer
+        If txtId.Text = "" Then
+            MsgBox("Existen Campos Vacios", vbInformation, "Sistema de Inventario")
+        Else
+            If MsgBox("¿Seguro en eliminar el puesto de trabajo : " + Trim(txtNombreP.Text) + " de su registro? ", vbQuestion + vbYesNo, "Sistema de Inventario") = vbNo Then
+                LimpiarControles()
+
+                Exit Sub
+
+            Else
+                Dim sql As String
+                sql = "DELETE FROM Puestos WHERE IdPuesto = " & Trim(txtId.Text)
+
+                Dim conect As New SqlConnection(obtenerConexion)
+                conect.Open()
+                Using comando As New SqlCommand(sql, conect)
+                    id = comando.ExecuteScalar()
+
+                End Using
+                conect.Close()
+                MsgBox("Registro eliminado exitosamente", vbInformation, "Sistema de Inventario")
+                LimpiarControles()
+            End If
+        End If
+    End Sub
+
     Sub LlenarDatos()
         Dim sql As String
         sql = "SELECT * FROM Puestos"
@@ -122,13 +168,13 @@ Public Class frmPuestosTrabajo
         btnBuscar.Enabled = True
     End Sub
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        'Editar()
+        Editar()
         DesactivarControles()
         LlenarDatos()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        'Eliminar()
+        Eliminar()
         DesactivarControles()
         LlenarDatos()
 
