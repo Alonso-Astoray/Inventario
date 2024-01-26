@@ -46,14 +46,23 @@ Partial Class frmEmpleados
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.rbDepartamento = New System.Windows.Forms.RadioButton()
+        Me.rbIdentidad = New System.Windows.Forms.RadioButton()
+        Me.rbNombreEmpleado = New System.Windows.Forms.RadioButton()
         Me.lblTotalEmpleados = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
-        Me.IdDepartamento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Identidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Genero = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Correo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreD = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionD = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreP = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -184,6 +193,8 @@ Partial Class frmEmpleados
         '
         'cboDepartamento
         '
+        Me.cboDepartamento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cboDepartamento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboDepartamento.FormattingEnabled = True
         Me.cboDepartamento.Location = New System.Drawing.Point(484, 94)
         Me.cboDepartamento.Name = "cboDepartamento"
@@ -192,6 +203,8 @@ Partial Class frmEmpleados
         '
         'cboPuesto
         '
+        Me.cboPuesto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cboPuesto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboPuesto.FormattingEnabled = True
         Me.cboPuesto.Location = New System.Drawing.Point(484, 131)
         Me.cboPuesto.Name = "cboPuesto"
@@ -254,6 +267,9 @@ Partial Class frmEmpleados
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.rbDepartamento)
+        Me.Panel1.Controls.Add(Me.rbIdentidad)
+        Me.Panel1.Controls.Add(Me.rbNombreEmpleado)
         Me.Panel1.Controls.Add(Me.lblTotalEmpleados)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label10)
@@ -263,6 +279,39 @@ Partial Class frmEmpleados
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(806, 257)
         Me.Panel1.TabIndex = 27
+        '
+        'rbDepartamento
+        '
+        Me.rbDepartamento.AutoSize = True
+        Me.rbDepartamento.Location = New System.Drawing.Point(212, 25)
+        Me.rbDepartamento.Name = "rbDepartamento"
+        Me.rbDepartamento.Size = New System.Drawing.Size(92, 17)
+        Me.rbDepartamento.TabIndex = 7
+        Me.rbDepartamento.TabStop = True
+        Me.rbDepartamento.Text = "Departamento"
+        Me.rbDepartamento.UseVisualStyleBackColor = True
+        '
+        'rbIdentidad
+        '
+        Me.rbIdentidad.AutoSize = True
+        Me.rbIdentidad.Location = New System.Drawing.Point(136, 25)
+        Me.rbIdentidad.Name = "rbIdentidad"
+        Me.rbIdentidad.Size = New System.Drawing.Size(69, 17)
+        Me.rbIdentidad.TabIndex = 6
+        Me.rbIdentidad.Text = "Identidad"
+        Me.rbIdentidad.UseVisualStyleBackColor = True
+        '
+        'rbNombreEmpleado
+        '
+        Me.rbNombreEmpleado.AutoSize = True
+        Me.rbNombreEmpleado.Checked = True
+        Me.rbNombreEmpleado.Location = New System.Drawing.Point(18, 25)
+        Me.rbNombreEmpleado.Name = "rbNombreEmpleado"
+        Me.rbNombreEmpleado.Size = New System.Drawing.Size(112, 17)
+        Me.rbNombreEmpleado.TabIndex = 5
+        Me.rbNombreEmpleado.TabStop = True
+        Me.rbNombreEmpleado.Text = "Nombre Empleado"
+        Me.rbNombreEmpleado.UseVisualStyleBackColor = True
         '
         'lblTotalEmpleados
         '
@@ -286,7 +335,7 @@ Partial Class frmEmpleados
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(18, 18)
+        Me.Label10.Location = New System.Drawing.Point(15, 9)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(40, 13)
         Me.Label10.TabIndex = 2
@@ -294,9 +343,9 @@ Partial Class frmEmpleados
         '
         'txtBuscar
         '
-        Me.txtBuscar.Location = New System.Drawing.Point(477, 11)
+        Me.txtBuscar.Location = New System.Drawing.Point(321, 9)
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.Size = New System.Drawing.Size(312, 20)
+        Me.txtBuscar.Size = New System.Drawing.Size(468, 20)
         Me.txtBuscar.TabIndex = 1
         '
         'dgvEmpleados
@@ -304,7 +353,7 @@ Partial Class frmEmpleados
         Me.dgvEmpleados.AllowUserToAddRows = False
         Me.dgvEmpleados.AllowUserToDeleteRows = False
         Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvEmpleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDepartamento, Me.NombreD, Me.DescripcionD})
+        Me.dgvEmpleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdEmpleado, Me.Nombre, Me.Identidad, Me.Genero, Me.Telefono, Me.Correo, Me.NombreD, Me.NombreP, Me.Direccion})
         Me.dgvEmpleados.Location = New System.Drawing.Point(18, 48)
         Me.dgvEmpleados.Name = "dgvEmpleados"
         Me.dgvEmpleados.ReadOnly = True
@@ -313,29 +362,76 @@ Partial Class frmEmpleados
         Me.dgvEmpleados.Size = New System.Drawing.Size(771, 169)
         Me.dgvEmpleados.TabIndex = 0
         '
-        'IdDepartamento
+        'IdEmpleado
         '
-        Me.IdDepartamento.DataPropertyName = "IdDepartamento"
-        Me.IdDepartamento.HeaderText = "ID"
-        Me.IdDepartamento.Name = "IdDepartamento"
-        Me.IdDepartamento.ReadOnly = True
-        Me.IdDepartamento.Visible = False
+        Me.IdEmpleado.DataPropertyName = "IdEmpleado"
+        Me.IdEmpleado.HeaderText = "ID"
+        Me.IdEmpleado.Name = "IdEmpleado"
+        Me.IdEmpleado.ReadOnly = True
+        Me.IdEmpleado.Visible = False
+        '
+        'Nombre
+        '
+        Me.Nombre.DataPropertyName = "Nombre"
+        Me.Nombre.HeaderText = "NOMBRE COMPLETO"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        Me.Nombre.Width = 160
+        '
+        'Identidad
+        '
+        Me.Identidad.DataPropertyName = "Identidad"
+        Me.Identidad.HeaderText = "IDENTIDAD"
+        Me.Identidad.Name = "Identidad"
+        Me.Identidad.ReadOnly = True
+        Me.Identidad.Width = 80
+        '
+        'Genero
+        '
+        Me.Genero.DataPropertyName = "Genero"
+        Me.Genero.HeaderText = "GENERO"
+        Me.Genero.Name = "Genero"
+        Me.Genero.ReadOnly = True
+        Me.Genero.Width = 60
+        '
+        'Telefono
+        '
+        Me.Telefono.DataPropertyName = "Telefono"
+        Me.Telefono.HeaderText = "TELEFONO"
+        Me.Telefono.Name = "Telefono"
+        Me.Telefono.ReadOnly = True
+        Me.Telefono.Width = 90
+        '
+        'Correo
+        '
+        Me.Correo.DataPropertyName = "Correo"
+        Me.Correo.HeaderText = "CORREO"
+        Me.Correo.Name = "Correo"
+        Me.Correo.ReadOnly = True
+        Me.Correo.Width = 90
         '
         'NombreD
         '
         Me.NombreD.DataPropertyName = "NombreD"
-        Me.NombreD.HeaderText = "NOMBRE DEPARTAMENTO"
+        Me.NombreD.HeaderText = "DEPARTAMENTO"
         Me.NombreD.Name = "NombreD"
         Me.NombreD.ReadOnly = True
-        Me.NombreD.Width = 200
         '
-        'DescripcionD
+        'NombreP
         '
-        Me.DescripcionD.DataPropertyName = "DescripcionD"
-        Me.DescripcionD.HeaderText = "DESCRIPCION"
-        Me.DescripcionD.Name = "DescripcionD"
-        Me.DescripcionD.ReadOnly = True
-        Me.DescripcionD.Width = 302
+        Me.NombreP.DataPropertyName = "NombreP"
+        Me.NombreP.HeaderText = "PUESTO DE TRABAJO"
+        Me.NombreP.Name = "NombreP"
+        Me.NombreP.ReadOnly = True
+        Me.NombreP.Width = 90
+        '
+        'Direccion
+        '
+        Me.Direccion.DataPropertyName = "Direccion"
+        Me.Direccion.HeaderText = "DIRECCION"
+        Me.Direccion.Name = "Direccion"
+        Me.Direccion.ReadOnly = True
+        Me.Direccion.Width = 98
         '
         'frmEmpleados
         '
@@ -405,7 +501,16 @@ Partial Class frmEmpleados
     Friend WithEvents Label10 As Label
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents dgvEmpleados As DataGridView
-    Friend WithEvents IdDepartamento As DataGridViewTextBoxColumn
+    Friend WithEvents IdEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As DataGridViewTextBoxColumn
+    Friend WithEvents Identidad As DataGridViewTextBoxColumn
+    Friend WithEvents Genero As DataGridViewTextBoxColumn
+    Friend WithEvents Telefono As DataGridViewTextBoxColumn
+    Friend WithEvents Correo As DataGridViewTextBoxColumn
     Friend WithEvents NombreD As DataGridViewTextBoxColumn
-    Friend WithEvents DescripcionD As DataGridViewTextBoxColumn
+    Friend WithEvents NombreP As DataGridViewTextBoxColumn
+    Friend WithEvents Direccion As DataGridViewTextBoxColumn
+    Friend WithEvents rbIdentidad As RadioButton
+    Friend WithEvents rbNombreEmpleado As RadioButton
+    Friend WithEvents rbDepartamento As RadioButton
 End Class
