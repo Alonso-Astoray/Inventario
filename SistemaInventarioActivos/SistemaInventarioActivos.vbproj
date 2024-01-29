@@ -92,6 +92,12 @@
     <Compile Include="Formularios\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmMarcas.Designer.vb">
+      <DependentUpon>frmMarcas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmMarcas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmPrincipal.Designer.vb">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmMarcas.resx">
+      <DependentUpon>frmMarcas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>

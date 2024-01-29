@@ -206,6 +206,57 @@ Public Class frmEmpleados
         End If
     End Sub
 
+    Sub Editar()
+        Dim id As Integer
+        If txtId.Text = "" Then
+            MsgBox("Existen Campos Vacios", vbInformation, "Sistema de Inventario")
+        Else
+            Dim sql As String
+            sql = "UPDATE Empleados SET Nombre ='" & txtNombreE.Text & "', Identidad ='" & txtIdentidad.Text &
+                                                               "', Genero = '" & cboGenero.Text & "',Telefono = '" & txtTelefono.Text &
+                                                               "', Correo = '" & txtCorreo.Text & "',Direccion = '" & txtDireccion.Text &
+                                                               "',IdDepartamento = '" & Trim(cboDepartamento.SelectedValue) &
+                                                               "',IdPuesto = '" & Trim(cboPuesto.SelectedValue) &
+                                                               "' WHERE IdEmpleado = '" & txtId.Text & "' "
+            Dim conect As New SqlConnection(obtenerConexion)
+            conect.Open()
+            Using comando As New SqlCommand(sql, conect)
+                id = comando.ExecuteScalar()
+
+            End Using
+            conect.Close()
+            MsgBox("Registro editado exitosamente", vbInformation, "Sistema de Inventario")
+            LimpiarControles()
+        End If
+    End Sub
+
+    Sub Eliminar()
+        Dim id As Integer
+        If txtId.Text = "" Then
+            MsgBox("Existen Campos Vacios", vbInformation, "Sistema de Inventario")
+        Else
+            If MsgBox("¿Seguro en eliminar a " + Trim(txtNombreE.Text) + " de su registro? ", vbQuestion + vbYesNo, "Sistema de Inventario") = vbNo Then
+                LimpiarControles()
+                DesactivarControles()
+                Exit Sub
+
+            Else
+                Dim sql As String
+                sql = "DELETE FROM Empleados WHERE IdEmpleado = " & Trim(txtId.Text)
+
+                Dim conect As New SqlConnection(obtenerConexion)
+                conect.Open()
+                Using comando As New SqlCommand(sql, conect)
+                    id = comando.ExecuteScalar()
+
+                End Using
+                conect.Close()
+                MsgBox("Registro eliminado exitosamente", vbInformation, "Sistema de Inventario")
+                LimpiarControles()
+            End If
+        End If
+    End Sub
+
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         Call ActivarControles()
@@ -236,6 +287,59 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub rbNombreEmpleado_CheckedChanged(sender As Object, e As EventArgs) Handles rbNombreEmpleado.CheckedChanged
+
+    End Sub
+
+    Private Sub dgvEmpleados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleados.CellDoubleClick
+        On Error Resume Next
+        txtId.Text = CStr(dgvEmpleados.Item("IdEmpleado", dgvEmpleados.CurrentCell.RowIndex).Value)
+        txtNombreE.Text = CStr(dgvEmpleados.Item("Nombre", dgvEmpleados.CurrentCell.RowIndex).Value)
+        txtIdentidad.Text = CStr(dgvEmpleados.Item("Identidad", dgvEmpleados.CurrentCell.RowIndex).Value)
+        cboGenero.Text = CStr(dgvEmpleados.Item("Genero", dgvEmpleados.CurrentCell.RowIndex).Value)
+        txtTelefono.Text = CStr(dgvEmpleados.Item("Telefono", dgvEmpleados.CurrentCell.RowIndex).Value)
+        txtCorreo.Text = CStr(dgvEmpleados.Item("Correo", dgvEmpleados.CurrentCell.RowIndex).Value)
+        txtDireccion.Text = CStr(dgvEmpleados.Item("Direccion", dgvEmpleados.CurrentCell.RowIndex).Value)
+        cboDepartamento.Text = CStr(dgvEmpleados.Item("NombreD", dgvEmpleados.CurrentCell.RowIndex).Value)
+        cboPuesto.Text = CStr(dgvEmpleados.Item("NombreP", dgvEmpleados.CurrentCell.RowIndex).Value)
+
+        btnCancelar.Enabled = True
+        btnEditar.Enabled = True
+        btnEliminar.Enabled = True
+        btnNuevo.Enabled = False
+
+        txtNombreE.Enabled = True
+        txtIdentidad.Enabled = True
+        cboGenero.Enabled = True
+        txtTelefono.Enabled = True
+        txtCorreo.Enabled = True
+        txtDireccion.Enabled = True
+        cboDepartamento.Enabled = True
+        cboPuesto.Enabled = True
+
+        txtNombreE.Focus()
+    End Sub
+
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        Editar()
+        DesactivarControles()
+        LlenarDatos()
+
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Eliminar()
+        DesactivarControles()
+        LlenarDatos()
+
+    End Sub
+
+    Private Sub btnDepartamento_Click(sender As Object, e As EventArgs) Handles btnDepartamento.Click
+        frmDepartamentos.ShowDialog()
+
+    End Sub
+
+    Private Sub btnPuestos_Click(sender As Object, e As EventArgs) Handles btnPuestos.Click
+        frmPuestosTrabajo.ShowDialog()
 
     End Sub
 End Class

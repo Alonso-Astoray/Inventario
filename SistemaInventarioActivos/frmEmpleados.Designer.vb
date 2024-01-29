@@ -63,6 +63,8 @@ Partial Class frmEmpleados
         Me.NombreD = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreP = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnDepartamento = New System.Windows.Forms.Button()
+        Me.btnPuestos = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -145,6 +147,7 @@ Partial Class frmEmpleados
         Me.txtId.Name = "txtId"
         Me.txtId.Size = New System.Drawing.Size(58, 20)
         Me.txtId.TabIndex = 8
+        Me.txtId.Visible = False
         '
         'txtNombreE
         '
@@ -198,7 +201,7 @@ Partial Class frmEmpleados
         Me.cboDepartamento.FormattingEnabled = True
         Me.cboDepartamento.Location = New System.Drawing.Point(484, 94)
         Me.cboDepartamento.Name = "cboDepartamento"
-        Me.cboDepartamento.Size = New System.Drawing.Size(191, 21)
+        Me.cboDepartamento.Size = New System.Drawing.Size(150, 21)
         Me.cboDepartamento.TabIndex = 17
         '
         'cboPuesto
@@ -208,7 +211,7 @@ Partial Class frmEmpleados
         Me.cboPuesto.FormattingEnabled = True
         Me.cboPuesto.Location = New System.Drawing.Point(484, 131)
         Me.cboPuesto.Name = "cboPuesto"
-        Me.cboPuesto.Size = New System.Drawing.Size(192, 21)
+        Me.cboPuesto.Size = New System.Drawing.Size(150, 21)
         Me.cboPuesto.TabIndex = 18
         '
         'btnBuscar
@@ -433,11 +436,33 @@ Partial Class frmEmpleados
         Me.Direccion.ReadOnly = True
         Me.Direccion.Width = 98
         '
+        'btnDepartamento
+        '
+        Me.btnDepartamento.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDepartamento.Location = New System.Drawing.Point(640, 92)
+        Me.btnDepartamento.Name = "btnDepartamento"
+        Me.btnDepartamento.Size = New System.Drawing.Size(36, 23)
+        Me.btnDepartamento.TabIndex = 28
+        Me.btnDepartamento.Text = "..."
+        Me.btnDepartamento.UseVisualStyleBackColor = True
+        '
+        'btnPuestos
+        '
+        Me.btnPuestos.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPuestos.Location = New System.Drawing.Point(640, 129)
+        Me.btnPuestos.Name = "btnPuestos"
+        Me.btnPuestos.Size = New System.Drawing.Size(36, 23)
+        Me.btnPuestos.TabIndex = 29
+        Me.btnPuestos.Text = "..."
+        Me.btnPuestos.UseVisualStyleBackColor = True
+        '
         'frmEmpleados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(864, 424)
+        Me.Controls.Add(Me.btnPuestos)
+        Me.Controls.Add(Me.btnDepartamento)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.btnCancelar)
@@ -513,4 +538,6 @@ Partial Class frmEmpleados
     Friend WithEvents rbIdentidad As RadioButton
     Friend WithEvents rbNombreEmpleado As RadioButton
     Friend WithEvents rbDepartamento As RadioButton
+    Friend WithEvents btnDepartamento As Button
+    Friend WithEvents btnPuestos As Button
 End Class
