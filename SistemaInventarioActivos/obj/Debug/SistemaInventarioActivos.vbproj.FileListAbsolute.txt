@@ -34,3 +34,5 @@ G:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\
 G:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\Debug\SistemaInventarioActivos.exe
 G:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\Debug\SistemaInventarioActivos.pdb
 G:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\bin\Debug\SistemaInventarioActivos.xml
+G:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmMarcas.resources
+G:\ETL\Sistema Inventario\SistemaInventarioActivos\SistemaInventarioActivos\obj\Debug\SistemaInventarioActivos.frmArticulos.resources

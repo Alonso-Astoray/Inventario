@@ -4,7 +4,7 @@ Public Class frmDepartamentos
         DesactivarControles()
         tamañoformulario()
         LlenarDatos()
-
+        dgvDepartamentos.AutoGenerateColumns = False
 
     End Sub
     Sub DesactivarControles()
@@ -29,20 +29,17 @@ Public Class frmDepartamentos
 
         btnNuevo.Enabled = False
     End Sub
-
     Sub LimpiarControles()
         txtNombreD.Text = ""
         txtDescripcionD.Text = ""
         txtId.Text = ""
         txtBuscar.Text = ""
     End Sub
-
     Sub tamañoformulario()
         Width = 605
         Height = 205
         Panel1.Visible = False
     End Sub
-
     Sub tamañoformularioBuscar()
         Width = 605
         Height = 465
