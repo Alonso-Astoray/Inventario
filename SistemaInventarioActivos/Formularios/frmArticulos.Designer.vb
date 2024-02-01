@@ -32,15 +32,6 @@ Partial Class frmArticulos
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.dgvArticulos = New System.Windows.Forms.DataGridView()
-        Me.IdEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Identidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Genero = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Correo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreD = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreP = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
@@ -52,7 +43,7 @@ Partial Class frmArticulos
         Me.txtModelo = New System.Windows.Forms.TextBox()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.txtSerie = New System.Windows.Forms.TextBox()
-        Me.txtNombreE = New System.Windows.Forms.TextBox()
+        Me.txtNombreA = New System.Windows.Forms.TextBox()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -64,6 +55,15 @@ Partial Class frmArticulos
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.DTPFechaCompra = New System.Windows.Forms.DateTimePicker()
+        Me.IdArticulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroSerie = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodigoA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrecioCompra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoArticulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvArticulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -166,7 +166,7 @@ Partial Class frmArticulos
         Me.dgvArticulos.AllowUserToAddRows = False
         Me.dgvArticulos.AllowUserToDeleteRows = False
         Me.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvArticulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdEmpleado, Me.Nombre, Me.Identidad, Me.Genero, Me.Telefono, Me.Correo, Me.NombreD, Me.NombreP, Me.Direccion})
+        Me.dgvArticulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdArticulo, Me.NombreA, Me.NumeroSerie, Me.CodigoA, Me.NombreM, Me.Modelo, Me.PrecioCompra, Me.EstadoArticulo, Me.Descripcion})
         Me.dgvArticulos.Location = New System.Drawing.Point(18, 48)
         Me.dgvArticulos.Name = "dgvArticulos"
         Me.dgvArticulos.ReadOnly = True
@@ -174,77 +174,6 @@ Partial Class frmArticulos
         Me.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvArticulos.Size = New System.Drawing.Size(771, 169)
         Me.dgvArticulos.TabIndex = 0
-        '
-        'IdEmpleado
-        '
-        Me.IdEmpleado.DataPropertyName = "IdEmpleado"
-        Me.IdEmpleado.HeaderText = "ID"
-        Me.IdEmpleado.Name = "IdEmpleado"
-        Me.IdEmpleado.ReadOnly = True
-        Me.IdEmpleado.Visible = False
-        '
-        'Nombre
-        '
-        Me.Nombre.DataPropertyName = "Nombre"
-        Me.Nombre.HeaderText = "NOMBRE COMPLETO"
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.ReadOnly = True
-        Me.Nombre.Width = 160
-        '
-        'Identidad
-        '
-        Me.Identidad.DataPropertyName = "Identidad"
-        Me.Identidad.HeaderText = "IDENTIDAD"
-        Me.Identidad.Name = "Identidad"
-        Me.Identidad.ReadOnly = True
-        Me.Identidad.Width = 80
-        '
-        'Genero
-        '
-        Me.Genero.DataPropertyName = "Genero"
-        Me.Genero.HeaderText = "GENERO"
-        Me.Genero.Name = "Genero"
-        Me.Genero.ReadOnly = True
-        Me.Genero.Width = 60
-        '
-        'Telefono
-        '
-        Me.Telefono.DataPropertyName = "Telefono"
-        Me.Telefono.HeaderText = "TELEFONO"
-        Me.Telefono.Name = "Telefono"
-        Me.Telefono.ReadOnly = True
-        Me.Telefono.Width = 90
-        '
-        'Correo
-        '
-        Me.Correo.DataPropertyName = "Correo"
-        Me.Correo.HeaderText = "CORREO"
-        Me.Correo.Name = "Correo"
-        Me.Correo.ReadOnly = True
-        Me.Correo.Width = 90
-        '
-        'NombreD
-        '
-        Me.NombreD.DataPropertyName = "NombreD"
-        Me.NombreD.HeaderText = "DEPARTAMENTO"
-        Me.NombreD.Name = "NombreD"
-        Me.NombreD.ReadOnly = True
-        '
-        'NombreP
-        '
-        Me.NombreP.DataPropertyName = "NombreP"
-        Me.NombreP.HeaderText = "PUESTO DE TRABAJO"
-        Me.NombreP.Name = "NombreP"
-        Me.NombreP.ReadOnly = True
-        Me.NombreP.Width = 90
-        '
-        'Direccion
-        '
-        Me.Direccion.DataPropertyName = "Direccion"
-        Me.Direccion.HeaderText = "DIRECCION"
-        Me.Direccion.Name = "Direccion"
-        Me.Direccion.ReadOnly = True
-        Me.Direccion.Width = 98
         '
         'btnBuscar
         '
@@ -339,12 +268,12 @@ Partial Class frmArticulos
         Me.txtSerie.Size = New System.Drawing.Size(192, 20)
         Me.txtSerie.TabIndex = 40
         '
-        'txtNombreE
+        'txtNombreA
         '
-        Me.txtNombreE.Location = New System.Drawing.Point(91, 21)
-        Me.txtNombreE.Name = "txtNombreE"
-        Me.txtNombreE.Size = New System.Drawing.Size(329, 20)
-        Me.txtNombreE.TabIndex = 39
+        Me.txtNombreA.Location = New System.Drawing.Point(91, 21)
+        Me.txtNombreA.Name = "txtNombreA"
+        Me.txtNombreA.Size = New System.Drawing.Size(329, 20)
+        Me.txtNombreA.TabIndex = 39
         '
         'txtId
         '
@@ -441,6 +370,79 @@ Partial Class frmArticulos
         Me.DTPFechaCompra.Size = New System.Drawing.Size(101, 20)
         Me.DTPFechaCompra.TabIndex = 58
         '
+        'IdArticulo
+        '
+        Me.IdArticulo.DataPropertyName = "IdArticulo"
+        Me.IdArticulo.HeaderText = "ID"
+        Me.IdArticulo.Name = "IdArticulo"
+        Me.IdArticulo.ReadOnly = True
+        Me.IdArticulo.Visible = False
+        '
+        'NombreA
+        '
+        Me.NombreA.DataPropertyName = "NombreA"
+        Me.NombreA.HeaderText = "NOMBRE DEL ACTIVO"
+        Me.NombreA.Name = "NombreA"
+        Me.NombreA.ReadOnly = True
+        Me.NombreA.Width = 150
+        '
+        'NumeroSerie
+        '
+        Me.NumeroSerie.DataPropertyName = "NumeroSerie"
+        Me.NumeroSerie.HeaderText = "NUMERO DE SERIE"
+        Me.NumeroSerie.Name = "NumeroSerie"
+        Me.NumeroSerie.ReadOnly = True
+        Me.NumeroSerie.Width = 80
+        '
+        'CodigoA
+        '
+        Me.CodigoA.DataPropertyName = "CodigoA"
+        Me.CodigoA.HeaderText = "CODIGO"
+        Me.CodigoA.Name = "CodigoA"
+        Me.CodigoA.ReadOnly = True
+        Me.CodigoA.Width = 60
+        '
+        'NombreM
+        '
+        Me.NombreM.DataPropertyName = "NombreM"
+        Me.NombreM.HeaderText = "MARCA"
+        Me.NombreM.Name = "NombreM"
+        Me.NombreM.ReadOnly = True
+        Me.NombreM.Width = 60
+        '
+        'Modelo
+        '
+        Me.Modelo.DataPropertyName = "Modelo"
+        Me.Modelo.HeaderText = "MODELO"
+        Me.Modelo.Name = "Modelo"
+        Me.Modelo.ReadOnly = True
+        Me.Modelo.Width = 90
+        '
+        'PrecioCompra
+        '
+        Me.PrecioCompra.DataPropertyName = "PrecioCompra"
+        Me.PrecioCompra.HeaderText = "PRECIO DE COMPRA"
+        Me.PrecioCompra.Name = "PrecioCompra"
+        Me.PrecioCompra.ReadOnly = True
+        Me.PrecioCompra.Width = 110
+        '
+        'EstadoArticulo
+        '
+        Me.EstadoArticulo.DataPropertyName = "EstadoArticulo"
+        Me.EstadoArticulo.HeaderText = "ESTADO"
+        Me.EstadoArticulo.Name = "EstadoArticulo"
+        Me.EstadoArticulo.ReadOnly = True
+        Me.EstadoArticulo.Visible = False
+        Me.EstadoArticulo.Width = 90
+        '
+        'Descripcion
+        '
+        Me.Descripcion.DataPropertyName = "Descripcion"
+        Me.Descripcion.HeaderText = "DESCRIPCION"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        Me.Descripcion.Width = 180
+        '
         'frmArticulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -462,7 +464,7 @@ Partial Class frmArticulos
         Me.Controls.Add(Me.txtModelo)
         Me.Controls.Add(Me.txtCodigo)
         Me.Controls.Add(Me.txtSerie)
-        Me.Controls.Add(Me.txtNombreE)
+        Me.Controls.Add(Me.txtNombreA)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -490,15 +492,6 @@ Partial Class frmArticulos
     Friend WithEvents Label10 As Label
     Friend WithEvents txtBuscar As TextBox
     Friend WithEvents dgvArticulos As DataGridView
-    Friend WithEvents IdEmpleado As DataGridViewTextBoxColumn
-    Friend WithEvents Nombre As DataGridViewTextBoxColumn
-    Friend WithEvents Identidad As DataGridViewTextBoxColumn
-    Friend WithEvents Genero As DataGridViewTextBoxColumn
-    Friend WithEvents Telefono As DataGridViewTextBoxColumn
-    Friend WithEvents Correo As DataGridViewTextBoxColumn
-    Friend WithEvents NombreD As DataGridViewTextBoxColumn
-    Friend WithEvents NombreP As DataGridViewTextBoxColumn
-    Friend WithEvents Direccion As DataGridViewTextBoxColumn
     Friend WithEvents btnBuscar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnEliminar As Button
@@ -510,7 +503,7 @@ Partial Class frmArticulos
     Friend WithEvents txtModelo As TextBox
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents txtSerie As TextBox
-    Friend WithEvents txtNombreE As TextBox
+    Friend WithEvents txtNombreA As TextBox
     Friend WithEvents txtId As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
@@ -522,4 +515,13 @@ Partial Class frmArticulos
     Friend WithEvents Label11 As Label
     Friend WithEvents txtPrecio As TextBox
     Friend WithEvents DTPFechaCompra As DateTimePicker
+    Friend WithEvents IdArticulo As DataGridViewTextBoxColumn
+    Friend WithEvents NombreA As DataGridViewTextBoxColumn
+    Friend WithEvents NumeroSerie As DataGridViewTextBoxColumn
+    Friend WithEvents CodigoA As DataGridViewTextBoxColumn
+    Friend WithEvents NombreM As DataGridViewTextBoxColumn
+    Friend WithEvents Modelo As DataGridViewTextBoxColumn
+    Friend WithEvents PrecioCompra As DataGridViewTextBoxColumn
+    Friend WithEvents EstadoArticulo As DataGridViewTextBoxColumn
+    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
 End Class
