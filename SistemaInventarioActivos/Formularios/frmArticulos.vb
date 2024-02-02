@@ -8,6 +8,9 @@ Public Class frmArticulos
         LlenarDatos()
         Mostrar_Marcas()
         cboMarca.SelectedIndex = -1
+        dgvArticulos.AutoGenerateColumns = False
+        dgvArticulos.Columns("PrecioCompra").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvArticulos.Columns("PrecioCompra").DefaultCellStyle.Format = "N2"
 
     End Sub
     Sub DesactivarControles()
@@ -96,7 +99,7 @@ Public Class frmArticulos
     End Sub
     Sub LlenarDatos()
         Dim sql As String
-        sql = "SELECT Articulos.NombreA,Articulos.NumeroSerie,Articulos.CodigoA,Marcas.NombreM,Articulos.Modelo,Articulos.PrecioCompra,
+        sql = "SELECT Articulos.IdArticulo,Articulos.NombreA,Articulos.NumeroSerie,Articulos.CodigoA,Marcas.NombreM,Articulos.Modelo,Articulos.PrecioCompra,
                       Articulos.FechaCompra,Articulos.EstadoArticulo,Articulos.Descripcion
                       FROM Articulos INNER JOIN Marcas ON Articulos.IdMarca = Marcas.IdMarca"
         Try
@@ -109,6 +112,109 @@ Public Class frmArticulos
         Catch ex As Exception
             MsgBox("Se ha mostrado el siguiente error " + ex.ToString + "Sistema Inventario")
         End Try
+    End Sub
+    Sub BuscarDatos()
+        If rbNombreArticulo.Checked Then
+            If txtBuscar.Text = "" Then
+                LlenarDatos()
+            End If
+            adaptador = New SqlDataAdapter("SELECT Articulos.NombreA,Articulos.NumeroSerie,Articulos.CodigoA,Marcas.NombreM,Articulos.Modelo,Articulos.PrecioCompra,
+                      Articulos.FechaCompra,Articulos.EstadoArticulo,Articulos.Descripcion
+                      FROM Articulos INNER JOIN Marcas ON Articulos.IdMarca = Marcas.IdMarca
+                                           WHERE Articulos.NombreA LIKE '%" & txtBuscar.Text & "%'", obtenerConexion)
+            tabla.Clear()
+            adaptador.Fill(tabla)
+            If tabla.Rows.Count > 0 Then
+                dgvArticulos.DataSource = tabla
+                lblTotalArticulos.Text = tabla.Rows.Count
+            Else
+                dgvArticulos.DataSource = ""
+            End If
+        End If
+        If rbCodigoA.Checked Then
+            If txtBuscar.Text = "" Then
+                LlenarDatos()
+            End If
+            adaptador = New SqlDataAdapter("SELECT Articulos.NombreA,Articulos.NumeroSerie,Articulos.CodigoA,Marcas.NombreM,Articulos.Modelo,Articulos.PrecioCompra,
+                      Articulos.FechaCompra,Articulos.EstadoArticulo,Articulos.Descripcion
+                      FROM Articulos INNER JOIN Marcas ON Articulos.IdMarca = Marcas.IdMarca
+                                           WHERE Articulos.CodigoA LIKE '%" & txtBuscar.Text & "%'", obtenerConexion)
+            tabla.Clear()
+            adaptador.Fill(tabla)
+            If tabla.Rows.Count > 0 Then
+                dgvArticulos.DataSource = tabla
+                lblTotalArticulos.Text = tabla.Rows.Count
+            Else
+                dgvArticulos.DataSource = ""
+            End If
+        End If
+
+        If rbMarca.Checked Then
+            If txtBuscar.Text = "" Then
+                LlenarDatos()
+            End If
+            adaptador = New SqlDataAdapter("SELECT Articulos.NombreA,Articulos.NumeroSerie,Articulos.CodigoA,Marcas.NombreM,Articulos.Modelo,Articulos.PrecioCompra,
+                      Articulos.FechaCompra,Articulos.EstadoArticulo,Articulos.Descripcion
+                      FROM Articulos INNER JOIN Marcas ON Articulos.IdMarca = Marcas.IdMarca
+                                           WHERE Marcas.NombreM LIKE '%" & txtBuscar.Text & "%'", obtenerConexion)
+            tabla.Clear()
+            adaptador.Fill(tabla)
+            If tabla.Rows.Count > 0 Then
+                dgvArticulos.DataSource = tabla
+                lblTotalArticulos.Text = tabla.Rows.Count
+            Else
+                dgvArticulos.DataSource = ""
+            End If
+        End If
+
+    End Sub
+    Sub Editar()
+        Dim id As Integer
+        If txtId.Text = "" Then
+            MsgBox("Existen Campos Vacios", vbInformation, "Sistema de Inventario")
+        Else
+            Dim sql As String
+            sql = "UPDATE Articulos SET NombreA ='" & txtNombreA.Text & "', NumeroSerie ='" & txtSerie.Text &
+                                                               "', CodigoA = '" & txtCodigo.Text & "',IdMarca = '" & Trim(cboMarca.SelectedValue) &
+                                                               "', Modelo = '" & txtModelo.Text & "',PrecioCompra = '" & txtPrecio.Text &
+                                                               "',FechaCompra = '" & DTPFechaCompra.Text & "', Descripcion= '" & txtDescripcion.Text &
+                                                               "' WHERE IdArticulo = '" & txtId.Text & "' "
+            Dim conect As New SqlConnection(obtenerConexion)
+            conect.Open()
+            Using comando As New SqlCommand(sql, conect)
+                id = comando.ExecuteScalar()
+
+            End Using
+            conect.Close()
+            MsgBox("Registro editado exitosamente", vbInformation, "Sistema de Inventario")
+            LimpiarControles()
+        End If
+    End Sub
+    Sub Eliminar()
+        Dim id As Integer
+        If txtId.Text = "" Then
+            MsgBox("Existen Campos Vacios", vbInformation, "Sistema de Inventario")
+        Else
+            If MsgBox("¿Seguro en eliminar a " + Trim(txtNombreA.Text) + " de su registro? ", vbQuestion + vbYesNo, "Sistema de Inventario") = vbNo Then
+                LimpiarControles()
+                DesactivarControles()
+                Exit Sub
+
+            Else
+                Dim sql As String
+                sql = "DELETE FROM Articulos WHERE IdArticulo  = " & Trim(txtId.Text)
+
+                Dim conect As New SqlConnection(obtenerConexion)
+                conect.Open()
+                Using comando As New SqlCommand(sql, conect)
+                    id = comando.ExecuteScalar()
+
+                End Using
+                conect.Close()
+                MsgBox("Registro eliminado exitosamente", vbInformation, "Sistema de Inventario")
+                LimpiarControles()
+            End If
+        End If
     End Sub
     Public Function Marcas_Listar(activo As Integer) As DataTable
         Dim tabla As New DataTable
@@ -142,7 +248,7 @@ Public Class frmArticulos
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         insertar()
-        'LlenarDatos()
+        LlenarDatos()
         Call DesactivarControles()
         LimpiarControles()
     End Sub
@@ -150,5 +256,65 @@ Public Class frmArticulos
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Call DesactivarControles()
         LimpiarControles()
+    End Sub
+
+    Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+        BuscarDatos()
+    End Sub
+
+    Private Sub rbNombreArticulo_CheckedChanged(sender As Object, e As EventArgs) Handles rbNombreArticulo.CheckedChanged
+        txtBuscar.Focus()
+    End Sub
+
+    Private Sub rbCodigoA_CheckedChanged(sender As Object, e As EventArgs) Handles rbCodigoA.CheckedChanged
+        txtBuscar.Focus()
+    End Sub
+
+    Private Sub rbMarca_CheckedChanged(sender As Object, e As EventArgs) Handles rbMarca.CheckedChanged
+        txtBuscar.Focus()
+
+    End Sub
+
+    Private Sub dgvArticulos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvArticulos.CellDoubleClick
+        On Error Resume Next
+        txtId.Text = CStr(dgvArticulos.Item("IdArticulo", dgvArticulos.CurrentCell.RowIndex).Value)
+        txtNombreA.Text = CStr(dgvArticulos.Item("NombreA", dgvArticulos.CurrentCell.RowIndex).Value)
+        txtSerie.Text = CStr(dgvArticulos.Item("NumeroSerie", dgvArticulos.CurrentCell.RowIndex).Value)
+        txtCodigo.Text = CStr(dgvArticulos.Item("CodigoA", dgvArticulos.CurrentCell.RowIndex).Value)
+        cboMarca.Text = CStr(dgvArticulos.Item("NombreM", dgvArticulos.CurrentCell.RowIndex).Value)
+        txtModelo.Text = CStr(dgvArticulos.Item("Modelo", dgvArticulos.CurrentCell.RowIndex).Value)
+        txtPrecio.Text = CStr(dgvArticulos.Item("PrecioCompra", dgvArticulos.CurrentCell.RowIndex).Value)
+        DTPFechaCompra.Text = CStr(dgvArticulos.Item("FechaCompra", dgvArticulos.CurrentCell.RowIndex).Value)
+        txtDescripcion.Text = CStr(dgvArticulos.Item("Descripcion", dgvArticulos.CurrentCell.RowIndex).Value)
+
+        btnCancelar.Enabled = True
+        btnEditar.Enabled = True
+        btnEliminar.Enabled = True
+        btnNuevo.Enabled = False
+
+        txtNombreA.Enabled = True
+        txtSerie.Enabled = True
+        txtCodigo.Enabled = True
+        cboMarca.Enabled = True
+        txtModelo.Enabled = True
+        txtPrecio.Enabled = True
+        DTPFechaCompra.Enabled = True
+        txtDescripcion.Enabled = True
+
+        txtNombreA.Focus()
+    End Sub
+
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        Editar()
+        DesactivarControles()
+        LlenarDatos()
+
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Eliminar()
+        DesactivarControles()
+        LlenarDatos()
+
     End Sub
 End Class
