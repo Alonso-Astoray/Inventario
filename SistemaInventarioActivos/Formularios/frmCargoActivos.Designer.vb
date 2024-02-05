@@ -22,7 +22,7 @@ Partial Class frmCargoActivos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DTPFechaCompra = New System.Windows.Forms.DateTimePicker()
+        Me.DTPFechaEntrega = New System.Windows.Forms.DateTimePicker()
         Me.txtIdentidad = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.btnArticulos = New System.Windows.Forms.Button()
@@ -51,12 +51,12 @@ Partial Class frmCargoActivos
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.cboMarca = New System.Windows.Forms.ComboBox()
+        Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
         Me.txtNombreE = New System.Windows.Forms.TextBox()
-        Me.txtCodigo = New System.Windows.Forms.TextBox()
-        Me.txtIdArticulo = New System.Windows.Forms.TextBox()
+        Me.txtCodigoInventario = New System.Windows.Forms.TextBox()
         Me.txtNombreA = New System.Windows.Forms.TextBox()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -68,21 +68,21 @@ Partial Class frmCargoActivos
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtDepartamento = New System.Windows.Forms.TextBox()
-        Me.txtSerie = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.btnEmpleadosId = New System.Windows.Forms.Button()
+        Me.txtPrecio = New System.Windows.Forms.TextBox()
+        Me.txtIdEmpleado = New System.Windows.Forms.TextBox()
+        Me.txtIdArticulo = New System.Windows.Forms.TextBox()
+        Me.btnEmpleados = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvActivosAsignados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DTPFechaCompra
+        'DTPFechaEntrega
         '
-        Me.DTPFechaCompra.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPFechaCompra.Location = New System.Drawing.Point(367, 80)
-        Me.DTPFechaCompra.Name = "DTPFechaCompra"
-        Me.DTPFechaCompra.Size = New System.Drawing.Size(209, 20)
-        Me.DTPFechaCompra.TabIndex = 83
+        Me.DTPFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPFechaEntrega.Location = New System.Drawing.Point(367, 80)
+        Me.DTPFechaEntrega.Name = "DTPFechaEntrega"
+        Me.DTPFechaEntrega.Size = New System.Drawing.Size(209, 20)
+        Me.DTPFechaEntrega.TabIndex = 83
         '
         'txtIdentidad
         '
@@ -342,22 +342,22 @@ Partial Class frmCargoActivos
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
-        'cboMarca
+        'cboEstado
         '
-        Me.cboMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cboMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cboMarca.FormattingEnabled = True
-        Me.cboMarca.Location = New System.Drawing.Point(677, 81)
-        Me.cboMarca.Name = "cboMarca"
-        Me.cboMarca.Size = New System.Drawing.Size(127, 21)
-        Me.cboMarca.TabIndex = 72
+        Me.cboEstado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cboEstado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cboEstado.FormattingEnabled = True
+        Me.cboEstado.Location = New System.Drawing.Point(677, 81)
+        Me.cboEstado.Name = "cboEstado"
+        Me.cboEstado.Size = New System.Drawing.Size(127, 21)
+        Me.cboEstado.TabIndex = 72
         '
         'txtDescripcion
         '
         Me.txtDescripcion.Location = New System.Drawing.Point(92, 108)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(631, 52)
+        Me.txtDescripcion.Size = New System.Drawing.Size(712, 52)
         Me.txtDescripcion.TabIndex = 71
         '
         'txtNombreE
@@ -367,26 +367,26 @@ Partial Class frmCargoActivos
         Me.txtNombreE.Size = New System.Drawing.Size(209, 20)
         Me.txtNombreE.TabIndex = 70
         '
-        'txtCodigo
+        'txtCodigoInventario
         '
-        Me.txtCodigo.Location = New System.Drawing.Point(92, 77)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(167, 20)
-        Me.txtCodigo.TabIndex = 69
-        '
-        'txtIdArticulo
-        '
-        Me.txtIdArticulo.Location = New System.Drawing.Point(367, 22)
-        Me.txtIdArticulo.Name = "txtIdArticulo"
-        Me.txtIdArticulo.Size = New System.Drawing.Size(209, 20)
-        Me.txtIdArticulo.TabIndex = 68
+        Me.txtCodigoInventario.Location = New System.Drawing.Point(92, 77)
+        Me.txtCodigoInventario.Name = "txtCodigoInventario"
+        Me.txtCodigoInventario.Size = New System.Drawing.Size(167, 20)
+        Me.txtCodigoInventario.TabIndex = 69
         '
         'txtNombreA
         '
-        Me.txtNombreA.Location = New System.Drawing.Point(92, 22)
+        Me.txtNombreA.Location = New System.Drawing.Point(367, 22)
         Me.txtNombreA.Name = "txtNombreA"
-        Me.txtNombreA.Size = New System.Drawing.Size(125, 20)
-        Me.txtNombreA.TabIndex = 67
+        Me.txtNombreA.Size = New System.Drawing.Size(209, 20)
+        Me.txtNombreA.TabIndex = 68
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Location = New System.Drawing.Point(92, 22)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(125, 20)
+        Me.txtCodigo.TabIndex = 67
         '
         'txtId
         '
@@ -394,12 +394,11 @@ Partial Class frmCargoActivos
         Me.txtId.Name = "txtId"
         Me.txtId.Size = New System.Drawing.Size(23, 20)
         Me.txtId.TabIndex = 66
-        Me.txtId.Visible = False
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(593, 84)
+        Me.Label7.Location = New System.Drawing.Point(611, 77)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(60, 26)
         Me.Label7.TabIndex = 65
@@ -462,7 +461,7 @@ Partial Class frmCargoActivos
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(593, 60)
+        Me.Label8.Location = New System.Drawing.Point(597, 54)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(74, 13)
         Me.Label8.TabIndex = 84
@@ -471,11 +470,11 @@ Partial Class frmCargoActivos
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(582, 25)
+        Me.Label12.Location = New System.Drawing.Point(609, 22)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(62, 13)
+        Me.Label12.Size = New System.Drawing.Size(37, 13)
         Me.Label12.TabIndex = 85
-        Me.Label12.Text = "N. De Serie"
+        Me.Label12.Text = "Precio"
         '
         'txtDepartamento
         '
@@ -484,50 +483,50 @@ Partial Class frmCargoActivos
         Me.txtDepartamento.Size = New System.Drawing.Size(127, 20)
         Me.txtDepartamento.TabIndex = 86
         '
-        'txtSerie
+        'txtPrecio
         '
-        Me.txtSerie.Location = New System.Drawing.Point(677, 19)
-        Me.txtSerie.Name = "txtSerie"
-        Me.txtSerie.Size = New System.Drawing.Size(127, 20)
-        Me.txtSerie.TabIndex = 87
+        Me.txtPrecio.Location = New System.Drawing.Point(677, 19)
+        Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.Size = New System.Drawing.Size(127, 20)
+        Me.txtPrecio.TabIndex = 87
         '
-        'TextBox3
+        'txtIdEmpleado
         '
-        Me.TextBox3.Location = New System.Drawing.Point(804, 51)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(23, 20)
-        Me.TextBox3.TabIndex = 88
+        Me.txtIdEmpleado.Location = New System.Drawing.Point(804, 51)
+        Me.txtIdEmpleado.Name = "txtIdEmpleado"
+        Me.txtIdEmpleado.Size = New System.Drawing.Size(23, 20)
+        Me.txtIdEmpleado.TabIndex = 88
         '
-        'TextBox4
+        'txtIdArticulo
         '
-        Me.TextBox4.Location = New System.Drawing.Point(804, 19)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(23, 20)
-        Me.TextBox4.TabIndex = 89
+        Me.txtIdArticulo.Location = New System.Drawing.Point(804, 19)
+        Me.txtIdArticulo.Name = "txtIdArticulo"
+        Me.txtIdArticulo.Size = New System.Drawing.Size(23, 20)
+        Me.txtIdArticulo.TabIndex = 89
         '
-        'btnEmpleadosId
+        'btnEmpleados
         '
-        Me.btnEmpleadosId.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEmpleadosId.Location = New System.Drawing.Point(223, 45)
-        Me.btnEmpleadosId.Name = "btnEmpleadosId"
-        Me.btnEmpleadosId.Size = New System.Drawing.Size(36, 23)
-        Me.btnEmpleadosId.TabIndex = 90
-        Me.btnEmpleadosId.Text = "..."
-        Me.btnEmpleadosId.UseVisualStyleBackColor = True
+        Me.btnEmpleados.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEmpleados.Location = New System.Drawing.Point(223, 45)
+        Me.btnEmpleados.Name = "btnEmpleados"
+        Me.btnEmpleados.Size = New System.Drawing.Size(36, 23)
+        Me.btnEmpleados.TabIndex = 90
+        Me.btnEmpleados.Text = "..."
+        Me.btnEmpleados.UseVisualStyleBackColor = True
         '
         'frmCargoActivos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1016, 478)
-        Me.Controls.Add(Me.btnEmpleadosId)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.txtSerie)
+        Me.Controls.Add(Me.btnEmpleados)
+        Me.Controls.Add(Me.txtIdArticulo)
+        Me.Controls.Add(Me.txtIdEmpleado)
+        Me.Controls.Add(Me.txtPrecio)
         Me.Controls.Add(Me.txtDepartamento)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.DTPFechaCompra)
+        Me.Controls.Add(Me.DTPFechaEntrega)
         Me.Controls.Add(Me.txtIdentidad)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnArticulos)
@@ -538,12 +537,12 @@ Partial Class frmCargoActivos
         Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnNuevo)
-        Me.Controls.Add(Me.cboMarca)
+        Me.Controls.Add(Me.cboEstado)
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.txtNombreE)
-        Me.Controls.Add(Me.txtCodigo)
-        Me.Controls.Add(Me.txtIdArticulo)
+        Me.Controls.Add(Me.txtCodigoInventario)
         Me.Controls.Add(Me.txtNombreA)
+        Me.Controls.Add(Me.txtCodigo)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -553,7 +552,7 @@ Partial Class frmCargoActivos
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmCargoActivos"
-        Me.Text = "frmCargoActivos"
+        Me.Text = "Asignacion de Activos a Empleados"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dgvActivosAsignados, System.ComponentModel.ISupportInitialize).EndInit()
@@ -562,7 +561,7 @@ Partial Class frmCargoActivos
 
     End Sub
 
-    Friend WithEvents DTPFechaCompra As DateTimePicker
+    Friend WithEvents DTPFechaEntrega As DateTimePicker
     Friend WithEvents txtIdentidad As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents btnArticulos As Button
@@ -591,12 +590,12 @@ Partial Class frmCargoActivos
     Friend WithEvents btnEditar As Button
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnNuevo As Button
-    Friend WithEvents cboMarca As ComboBox
+    Friend WithEvents cboEstado As ComboBox
     Friend WithEvents txtDescripcion As TextBox
     Friend WithEvents txtNombreE As TextBox
-    Friend WithEvents txtCodigo As TextBox
-    Friend WithEvents txtIdArticulo As TextBox
+    Friend WithEvents txtCodigoInventario As TextBox
     Friend WithEvents txtNombreA As TextBox
+    Friend WithEvents txtCodigo As TextBox
     Friend WithEvents txtId As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
@@ -608,8 +607,8 @@ Partial Class frmCargoActivos
     Friend WithEvents Label8 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents txtDepartamento As TextBox
-    Friend WithEvents txtSerie As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents btnEmpleadosId As Button
+    Friend WithEvents txtPrecio As TextBox
+    Friend WithEvents txtIdEmpleado As TextBox
+    Friend WithEvents txtIdArticulo As TextBox
+    Friend WithEvents btnEmpleados As Button
 End Class
