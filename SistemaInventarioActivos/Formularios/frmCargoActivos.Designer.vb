@@ -364,6 +364,7 @@ Partial Class frmCargoActivos
         '
         Me.txtNombreE.Location = New System.Drawing.Point(367, 51)
         Me.txtNombreE.Name = "txtNombreE"
+        Me.txtNombreE.ReadOnly = True
         Me.txtNombreE.Size = New System.Drawing.Size(209, 20)
         Me.txtNombreE.TabIndex = 70
         '
@@ -378,6 +379,7 @@ Partial Class frmCargoActivos
         '
         Me.txtNombreA.Location = New System.Drawing.Point(367, 22)
         Me.txtNombreA.Name = "txtNombreA"
+        Me.txtNombreA.ReadOnly = True
         Me.txtNombreA.Size = New System.Drawing.Size(209, 20)
         Me.txtNombreA.TabIndex = 68
         '
@@ -480,6 +482,7 @@ Partial Class frmCargoActivos
         '
         Me.txtDepartamento.Location = New System.Drawing.Point(677, 51)
         Me.txtDepartamento.Name = "txtDepartamento"
+        Me.txtDepartamento.ReadOnly = True
         Me.txtDepartamento.Size = New System.Drawing.Size(127, 20)
         Me.txtDepartamento.TabIndex = 86
         '
@@ -487,6 +490,7 @@ Partial Class frmCargoActivos
         '
         Me.txtPrecio.Location = New System.Drawing.Point(677, 19)
         Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.ReadOnly = True
         Me.txtPrecio.Size = New System.Drawing.Size(127, 20)
         Me.txtPrecio.TabIndex = 87
         '
